@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Job listing app</string>
+    
+    <string name="designer">Designer</string>
+    <string name="designer1">Junior UX Designer</string>
+    <string name="designer2">Junior Product Designer</string>
+<string name="designer3">Middle Motion designer</string>
+<string name="designer4">Brand and Marketing Designer</string>
+<!--    <string name="designer5">Product Designer </string>-->
+<!--    <string name="designer6">Brand Campaign Manager</string>-->
+
+    <string name="Android">Android</string>
+<string name="android1">Junior Android Developer</string>
+<string name="android2">Middle Android Developer</string>
+<string name="android3">Backend / API Engineer, Accounts</string>
+<string name="android4">Backend Engineer, Money Movement - Transactions</string>
+
+    <string name="iOSDeveloper">iOS Developer</string>
+<string name="IOS1">iOS Developer</string>
+    <string name="IOS2">iOS Developer 2</string>
+    <string name="IOS3"> iOS Developer 3</string>
+    <string name="IOS4"> iOS Developer 4</string>
+
+    <string name="BackendDeveloper">Backend Developer</string>
+<string name="backend1">Staff Software Engineer, Backend Engineering</string>
+    <string name="backend2">Backend / API Engineer, Accounts</string>
+    <string name="backend3">Backend / API Engineer, Banking as a Service</string>
+    <string name="backend4">Backend / API Engineer, Financial Connections</string>
+
+    <string name="Tester">Tester</string>
+<string name="tester1">QA Automation Engineer</string>
+    <string name="tester2">QA Engineer</string>
+    <string name="tester3">QA Engineer 2</string>
+    <string name="tester4">QA Engineer 3</string>
+
+</resources>
