@@ -12,7 +12,7 @@ class JobListAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return if(viewType == JobListType.CATEGORY_VIEW.ordinal){
-CategoryViewHolder(
+HeaderViewHolder(
     ItemCategoryBinding.inflate(
         LayoutInflater.from(parent.context), parent, false
     )
@@ -29,7 +29,7 @@ CategoryViewHolder(
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when(holder){
             is JobViewHolder -> holder.bindView(items[position].name)
-            is CategoryViewHolder ->  holder.bindView(items[position].name)
+            is HeaderViewHolder ->  holder.bindView(items[position].name)
         }
     }
 
@@ -43,7 +43,7 @@ CategoryViewHolder(
             }
         }
 
-    class CategoryViewHolder(private val binding: ItemCategoryBinding):
+    class HeaderViewHolder(private val binding: ItemCategoryBinding):
             RecyclerView.ViewHolder(binding.root){
                 fun bindView(title: String){
                     binding.root.text = title

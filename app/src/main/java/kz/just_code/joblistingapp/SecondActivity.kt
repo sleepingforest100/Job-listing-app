@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import kz.just_code.joblistingapp.databinding.FragmentDetailsBinding
+import kz.just_code.joblistingapp.decoration.HeaderDecoration
+import kz.just_code.joblistingapp.decoration.OffsetDecoration
 
 
 class SecondActivity: AppCompatActivity() {
@@ -34,7 +36,10 @@ class SecondActivity: AppCompatActivity() {
         }
 
         val adapter = JobListAdapter(modifiedList) // Use the modified list
+        val offsetDecoration = OffsetDecoration(start = 2, top = 10, end = 2, bottom = 10)
         binding.listView.adapter = adapter
+        binding.listView.addItemDecoration(offsetDecoration)
+        binding.listView.addItemDecoration(HeaderDecoration())
         binding.listView.layoutManager = LinearLayoutManager(this)
 
     }
