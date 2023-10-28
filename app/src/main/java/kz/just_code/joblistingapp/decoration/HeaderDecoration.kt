@@ -16,14 +16,14 @@ class HeaderDecoration:ItemDecoration() {
     override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         val holders = parent.children
             .map { parent.findContainingViewHolder(it) }
-            .filter { it is JobListAdapter.HeaderViewHolder }
+            .filter { it is JobListAdapter.JobViewHolder}
 
         holders.forEach { it?.itemView?.alpha = 1f}
         val viewHolder = holders.firstOrNull()
         val viewY = viewHolder?.itemView?.y ?: 0f
 
         if (currentBitmap == null || viewY <= 0 && viewHolder != null){
-currentBitmap = viewHolder?.itemView?.drawToBitmap()
+            currentBitmap = viewHolder?.itemView?.drawToBitmap()
         }
 
         val bitmapHeight = currentBitmap?.height ?: 0

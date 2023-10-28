@@ -32,5 +32,6 @@
     <string name="tester2">QA Engineer</string>
     <string name="tester3">QA Engineer 2</string>
     <string name="tester4">QA Engineer 3</string>
+    <string name="description">Kotlin, Java</string>
 
 </resources>

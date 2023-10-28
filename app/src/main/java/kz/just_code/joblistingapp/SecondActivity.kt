@@ -9,38 +9,57 @@ import kz.just_code.joblistingapp.decoration.HeaderDecoration
 import kz.just_code.joblistingapp.decoration.OffsetDecoration
 
 
-class SecondActivity: AppCompatActivity() {
+class SecondActivity : AppCompatActivity() {
     private lateinit var binding: FragmentDetailsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val jobList = JobListMaker.getJobList(this)
-        val modifiedList = mutableListOf<JobListDto>()
+        val jobListAdapter = JobListAdapter()
 
-        jobList.forEachIndexed { index, item ->
-            if (index%5 == 0) {
-                val title =
-                    when (index) {
-                        0 -> getString(R.string.designer)
-                        5 -> getString(R.string.Android)
-                        10 -> getString(R.string.iOSDeveloper)
-                        15 -> getString(R.string.BackendDeveloper)
-                        20 -> getString(R.string.Tester)
-                        else -> ""
-                    }
-                modifiedList.add(JobListDto(JobListType.CATEGORY_VIEW, title))
-            }
-            modifiedList.add(JobListDto(JobListType.JOB_VIEW, item))
+        with(binding) {
+            listView.adapter = jobListAdapter
+            listView.layoutManager =
+                LinearLayoutManager(this@SecondActivity, LinearLayoutManager.VERTICAL, false)
+            listView.addItemDecoration(OffsetDecoration(start = 2, top = 10, end = 2, bottom = 10))
         }
 
-        val adapter = JobListAdapter(modifiedList) // Use the modified list
-        val offsetDecoration = OffsetDecoration(start = 2, top = 10, end = 2, bottom = 10)
-        binding.listView.adapter = adapter
-        binding.listView.addItemDecoration(offsetDecoration)
-        binding.listView.addItemDecoration(HeaderDecoration())
-        binding.listView.layoutManager = LinearLayoutManager(this)
+        jobListAdapter.submitList(getJobList())
 
     }
+
+    private fun getJobList(): List<JobListDto> {
+        return listOf(
+            JobListDto(0, R.string.Android, R.string.description),
+            JobListDto(1, R.string.android1, R.string.description),
+            JobListDto(2, R.string.android2, R.string.description),
+            JobListDto(3, R.string.android3, R.string.description),
+            JobListDto(4, R.string.android4, R.string.description),
+            JobListDto(5, R.string.designer, R.string.description),
+            JobListDto(6, R.string.designer1, R.string.description),
+            JobListDto(7, R.string.designer2, R.string.description),
+            JobListDto(8, R.string.designer3, R.string.description),
+            JobListDto(9, R.string.designer4, R.string.description),
+            JobListDto(10, R.string.iOSDeveloper, R.string.description),
+            JobListDto(11, R.string.IOS1, R.string.description),
+            JobListDto(12, R.string.IOS2, R.string.description),
+            JobListDto(13, R.string.IOS3, R.string.description),
+            JobListDto(14, R.string.IOS4, R.string.description),
+            JobListDto(15, R.string.BackendDeveloper, R.string.description),
+            JobListDto(16, R.string.backend1, R.string.description),
+            JobListDto(16, R.string.backend2, R.string.description),
+            JobListDto(16, R.string.backend3, R.string.description),
+            JobListDto(16, R.string.backend4, R.string.description),
+            JobListDto(16, R.string.Tester, R.string.description),
+            JobListDto(16, R.string.tester1, R.string.description),
+            JobListDto(16, R.string.tester2, R.string.description),
+            JobListDto(16, R.string.tester3, R.string.description),
+            JobListDto(16, R.string.tester4, R.string.description)
+
+
+
+            )
+    }
+
 }

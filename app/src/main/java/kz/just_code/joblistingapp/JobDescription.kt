@@ -2,8 +2,8 @@ package kz.just_code.joblistingapp
 
 data class JobDescription(
     val id: Int,
-    val imageResource: Int,   // Resource ID for the job image
-    val title: String,        // Job title
+    val title: String, // Job title
+    val description: String,
     val location: String,     // Job location
     val date: String,         // Job date
     val salary: String,       // Salary information
