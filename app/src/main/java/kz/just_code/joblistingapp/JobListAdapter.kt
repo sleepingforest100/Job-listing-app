@@ -33,26 +33,25 @@ class JobListAdapter : ListAdapter<JobListDto, BaseJobViewHolder<*>>(JobListDiff
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseJobViewHolder<*> {
-return JobViewHolder(
-    ItemJobBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-)
+        return JobViewHolder(
+            ItemJobBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        )
 
     }
 
     override fun onBindViewHolder(holder: BaseJobViewHolder<*>, position: Int) {
-holder.bindView(
-    getItem(position)
-)
+        holder.bindView(
+            getItem(position)
+        )
     }
-
 }
 enum class JobListType{
-    JOB
+    JOB_VIEW, CATEGORY_VIEW
 }
 data class JobListDto(
     val id: Int,
     @StringRes
     val name: Int,
     @StringRes
-    val description: Int,
+    val description: Int
 )

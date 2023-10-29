@@ -3,6 +3,7 @@ package kz.just_code.joblistingapp
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearSnapHelper
 
 import kz.just_code.joblistingapp.databinding.FragmentDetailsBinding
 import kz.just_code.joblistingapp.decoration.HeaderDecoration
@@ -17,17 +18,17 @@ class SecondActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val jobListAdapter = JobListAdapter()
-
         with(binding) {
             listView.adapter = jobListAdapter
             listView.layoutManager =
                 LinearLayoutManager(this@SecondActivity, LinearLayoutManager.VERTICAL, false)
             listView.addItemDecoration(OffsetDecoration(start = 2, top = 10, end = 2, bottom = 10))
+            LinearSnapHelper().attachToRecyclerView(listView)
         }
 
         jobListAdapter.submitList(getJobList())
-
     }
+
 
     private fun getJobList(): List<JobListDto> {
         return listOf(
@@ -58,8 +59,7 @@ class SecondActivity : AppCompatActivity() {
             JobListDto(16, R.string.tester4, R.string.description)
 
 
-
-            )
+        )
     }
 
 }
